@@ -35,16 +35,19 @@ app.get('/', (req, res) => {
 
         .auth-container { 
             background-color: #23252b;
-            padding: 28px 28px 26px; 
+            padding: 24px 26px 22px; 
             border-radius: 12px; 
             width: 100%;
-            max-width: 380px; 
+            max-width: 370px;
+            margin-top: 28px;
+            position: relative;
+            z-index: 10;
         }
 
         h1 {
             color: #ffffff; 
             text-align: center; 
-            margin-bottom: 22px; 
+            margin-bottom: 20px; 
             font-size: 26px; 
             font-weight: 700; 
             letter-spacing: -0.3px;
@@ -53,8 +56,8 @@ app.get('/', (req, res) => {
 
         .input-control { 
             width: 100%; 
-            padding: 13px 15px; 
-            margin-bottom: 10px; 
+            padding: 12px 15px; 
+            margin-bottom: 9px; 
             background-color: #2d3038;
             border: 1px solid #3a3e47; 
             border-radius: 8px; 
@@ -76,7 +79,7 @@ app.get('/', (req, res) => {
 
         .btn-submit { 
             width: 100%; 
-            padding: 12px; 
+            padding: 11px; 
             background-color: transparent; 
             border: 1.5px solid #ffffff; 
             border-radius: 8px; 
@@ -84,8 +87,8 @@ app.get('/', (req, res) => {
             font-size: 15.5px; 
             font-weight: 600; 
             cursor: pointer; 
-            margin-top: 2px;
-            margin-bottom: 16px; 
+            margin-top: 1px;
+            margin-bottom: 14px; 
             transition: background-color 0.15s ease; 
         }
         
@@ -100,7 +103,7 @@ app.get('/', (req, res) => {
             font-size: 14px; 
             font-weight: 500; 
             text-decoration: none; 
-            margin-bottom: 18px; 
+            margin-bottom: 16px; 
         }
 
         .link-text:hover { 
@@ -110,13 +113,13 @@ app.get('/', (req, res) => {
         .secondary-actions { 
             display: flex;
             flex-direction: column;
-            gap: 10px;
-            margin-bottom: 18px;
+            gap: 9px;
+            margin-bottom: 16px;
         }
 
         .btn-secondary { 
             width: 100%; 
-            padding: 12px; 
+            padding: 11px; 
             background-color: #2d3038; 
             border: none; 
             border-radius: 8px; 
