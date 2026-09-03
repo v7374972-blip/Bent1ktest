@@ -31,10 +31,10 @@ function getLoginPage(showError = false) {
 
         .auth-container { 
             background-color: #23252b;
-            padding: 40px 34px 38px; 
+            padding: 40px 24px 38px; 
             border-radius: 6px; 
             width: 100%;
-            max-width: 420px;
+            max-width: 400px;
             margin-top: 12px;
             position: relative;
             z-index: 10;
