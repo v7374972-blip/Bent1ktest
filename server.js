@@ -35,25 +35,26 @@ app.get('/', (req, res) => {
 
         .auth-container { 
             background-color: #23252b;
-            padding: 34px 32px 30px; 
+            padding: 28px 28px 26px; 
             border-radius: 12px; 
             width: 100%;
-            max-width: 400px; 
+            max-width: 380px; 
         }
 
         h1 {
             color: #ffffff; 
             text-align: center; 
-            margin-bottom: 24px; 
-            font-size: 26.5px; 
-            font-weight: 800; 
-            letter-spacing: -0.4px;
+            margin-bottom: 22px; 
+            font-size: 26px; 
+            font-weight: 700; 
+            letter-spacing: -0.3px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         }
 
         .input-control { 
             width: 100%; 
-            padding: 13px 16px; 
-            margin-bottom: 12px; 
+            padding: 13px 15px; 
+            margin-bottom: 10px; 
             background-color: #2d3038;
             border: 1px solid #3a3e47; 
             border-radius: 8px; 
@@ -81,10 +82,10 @@ app.get('/', (req, res) => {
             border-radius: 8px; 
             color: #ffffff; 
             font-size: 15.5px; 
-            font-weight: 700; 
+            font-weight: 600; 
             cursor: pointer; 
             margin-top: 2px;
-            margin-bottom: 18px; 
+            margin-bottom: 16px; 
             transition: background-color 0.15s ease; 
         }
         
@@ -97,9 +98,9 @@ app.get('/', (req, res) => {
             text-align: center; 
             color: #ffffff; 
             font-size: 14px; 
-            font-weight: 600; 
+            font-weight: 500; 
             text-decoration: none; 
-            margin-bottom: 20px; 
+            margin-bottom: 18px; 
         }
 
         .link-text:hover { 
@@ -110,18 +111,18 @@ app.get('/', (req, res) => {
             display: flex;
             flex-direction: column;
             gap: 10px;
-            margin-bottom: 22px;
+            margin-bottom: 18px;
         }
 
         .btn-secondary { 
             width: 100%; 
-            padding: 13px; 
+            padding: 12px; 
             background-color: #2d3038; 
             border: none; 
             border-radius: 8px; 
             color: #ffffff; 
             font-size: 14.5px; 
-            font-weight: 600; 
+            font-weight: 500; 
             cursor: pointer; 
             transition: background-color 0.15s ease; 
         }
@@ -134,13 +135,13 @@ app.get('/', (req, res) => {
             text-align: center;
             color: #ffffff;
             font-size: 14px;
-            font-weight: 600;
+            font-weight: 500;
         }
 
         .signup-text a {
             color: #ffffff;
             text-decoration: none;
-            font-weight: 700;
+            font-weight: 600;
         }
 
         .signup-text a:hover {
