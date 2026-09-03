@@ -14,8 +14,7 @@ app.get('/', (req, res) => {
         body { 
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
             
-           ' https://www.image2url.com/r2/default/images/1788469813675-0bc88860-e73d-4dff-bb4c-a081a7d2f891.png '
-            background: url('МЕСТО_ДЛЯ_ВАШЕЙ_ССЫЛКИ') no-repeat center center fixed; 
+            background: url('https://www.image2url.com/r2/default/images/1788469813675-0bc88860-e73d-4dff-bb4c-a081a7d2f891.png') no-repeat center center fixed; 
             background-size: cover;
             
             height: 100vh; 
