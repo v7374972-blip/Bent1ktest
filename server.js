@@ -18,7 +18,7 @@ app.get('/', (req, res) => {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
             
             /* https://postimg.cc/R6MCLQWg */
-            background: url('МЕСТО_ДЛЯ_ВАШЕЙ_ССЫЛКИ') no-repeat center center fixed; 
+            background: url('https://postimg.cc') no-repeat center center fixed;
             background-size: cover;
             
             display: flex; 
