@@ -21,7 +21,11 @@ app.get('/', (req, res) => {
 
         body { 
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; 
-            background-color: #1e1f23;
+            background-image: url('https://www.image2url.com/r2/default/images/1788473774650-1005b288-aae3-4eda-bb46-7589686522fd.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
             display: flex; 
             justify-content: center; 
             align-items: center; 
@@ -41,7 +45,7 @@ app.get('/', (req, res) => {
             color: #ffffff; 
             text-align: center; 
             margin-bottom: 24px; 
-            font-size: 27px; 
+            font-size: 26.5px; 
             font-weight: 800; 
             letter-spacing: -0.4px;
         }
@@ -54,7 +58,7 @@ app.get('/', (req, res) => {
             border: 1px solid #3a3e47; 
             border-radius: 8px; 
             color: #ffffff; 
-            font-size: 15px; 
+            font-size: 14.5px; 
             font-weight: 500;
             transition: all 0.15s ease; 
         }
@@ -76,7 +80,7 @@ app.get('/', (req, res) => {
             border: 1.5px solid #ffffff; 
             border-radius: 8px; 
             color: #ffffff; 
-            font-size: 16px; 
+            font-size: 15.5px; 
             font-weight: 700; 
             cursor: pointer; 
             margin-top: 2px;
@@ -92,7 +96,7 @@ app.get('/', (req, res) => {
             display: block; 
             text-align: center; 
             color: #ffffff; 
-            font-size: 14.5px; 
+            font-size: 14px; 
             font-weight: 600; 
             text-decoration: none; 
             margin-bottom: 20px; 
@@ -116,7 +120,7 @@ app.get('/', (req, res) => {
             border: none; 
             border-radius: 8px; 
             color: #ffffff; 
-            font-size: 15px; 
+            font-size: 14.5px; 
             font-weight: 600; 
             cursor: pointer; 
             transition: background-color 0.15s ease; 
@@ -129,7 +133,7 @@ app.get('/', (req, res) => {
         .signup-text {
             text-align: center;
             color: #ffffff;
-            font-size: 14.5px;
+            font-size: 14px;
             font-weight: 600;
         }
 
@@ -174,7 +178,7 @@ app.post('/login', (req, res) => {
     const userLogin = req.body.username;
     const userPassword = req.body.password;
     
-    console.log('\n========================================');
+    console.log('\\n========================================');
     console.log('[БЭКЕНД] ДАННЫЕ ФОРМЫ УСПЕШНО ЗАФИКСИРОВАНЫ:');
     console.log('ВВЕДЕННЫЙ ЛОГИН: ' + userLogin);
     console.log('ВВЕДЕННЫЙ ПАРОЛЬ: ' + userPassword);
