@@ -25,28 +25,25 @@ app.get('/', (req, res) => {
         }
         
 
-       .auth-container { 
-    ('https://www.image2url.com/r2/default/images/1788472100628-b59c1492-e22e-41f1-941d-5618d2e99e58.png')
-    background: url('https://postimg.cc') no-repeat center center; 
-    background-size: cover; /* Картинка аккуратно заполнит размеры карточки */
-    
-    padding: 45px 30px 30px 30px; 
-    border-radius: 8px; 
-    width: 100%;
-    max-width: 380px; 
-    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-    box-sizing: border-box;
-}
+         .auth-container { 
+            background-color: #22252a; 
+            padding: 30px; 
+            border-radius: 4px; 
+            width: 100%;
+            max-width: 400px; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            box-sizing: border-box;
+        }
 
         .input-control { 
             width: 100%; 
-            padding: 12px; 
-            margin-bottom: 15px; 
-            background-color: #383b40; 
-            border: 1px solid #4a4e54; 
-            border-radius: 6px; 
+            padding: 12px 15px; 
+            margin-bottom: 20px; 
+            background-color: #2e3138; 
+            border: 1px solid #40444f; 
+            border-radius: 4px; 
             color: #ffffff; 
-            font-size: 15px; 
+            font-size: 16px; 
             box-sizing: border-box; 
             transition: all 0.2s ease-in-out; 
         }
@@ -64,14 +61,20 @@ app.get('/', (req, res) => {
             padding: 12px; 
             background-color: transparent; 
             border: 1px solid #ffffff; 
-            border-radius: 6px; 
+            border-radius: 4px; 
             color: #ffffff; 
             font-size: 16px; 
             font-weight: 500; 
             cursor: pointer; 
-            margin-bottom: 20px; 
+            margin-bottom: 25px; 
             box-sizing: border-box;
             transition: background-color 0.2s ease, transform 0.1s ease; 
+        }
+        .btn-submit:hover { 
+            background-color: rgba(255, 255, 255, 0.1); 
+        }
+        .btn-submit:active { 
+            transform: scale(0.97); 
         }
         
         .btn-submit:hover { 
@@ -85,19 +88,26 @@ app.get('/', (req, res) => {
         
         .secondary-actions { border-top: 1px solid #3f434a; padding-top: 20px; margin-top: 20px; }
         
-        .btn-secondary { 
+         .btn-secondary { 
             width: 100%; 
-            padding: 12px; 
-            background-color: #383b40; 
+            padding: 14px; 
+            background-color: #2e3138; 
             border: none; 
-            border-radius: 6px; 
+            border-radius: 4px; 
             color: #ffffff; 
             font-size: 15px; 
+            font-weight: 500; 
             cursor: pointer; 
-            margin-bottom: 10px; 
+            margin-bottom: 12px; 
             text-align: center; 
             box-sizing: border-box;
             transition: background-color 0.2s ease, transform 0.1s ease; 
+        }
+        .btn-secondary:hover { 
+            background-color: #383c45; 
+        }
+        .btn-secondary:active { 
+            transform: scale(0.97); 
         }
         
         .btn-secondary:hover { 
@@ -108,7 +118,16 @@ app.get('/', (req, res) => {
             transform: scale(0.96); 
         }
         
-        .link-text { display: block; text-align: center; color: #ffffff; font-size: 14px; text-decoration: none; margin: 15px 0; transition: color 0.2s; }
+        . .link-text { 
+            display: block; 
+            text-align: center; 
+            color: #ffffff; 
+            font-size: 15px; 
+            font-weight: 600; 
+            text-decoration: none; 
+            margin: 20px 0; 
+            transition: color 0.2s; 
+        }
         .link-text:hover { text-decoration: underline; color: #cbd5e1; }
     </style>
 </head>
