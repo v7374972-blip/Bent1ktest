@@ -15,25 +15,28 @@ app.get('/', (req, res) => {
     <title>Sign In</title>
     <style>
        body { 
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
-    background-color: #191b1f; /* Нейтральный темный фон для всего экрана */
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-    height: 100vh; 
-    margin: 0; 
-}
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
+            background-color: #22252a; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            height: 100vh; 
+            margin: 0; 
+        }
         
 
-        .auth-container { 
-            background-color: #2b2d32; 
-            padding: 45px 30px 30px 30px; 
-            border-radius: 8px; 
-            width: 100%;
-            max-width: 380px; 
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            box-sizing: border-box;
-        }
+       .auth-container { 
+    ('https://www.image2url.com/r2/default/images/1788472100628-b59c1492-e22e-41f1-941d-5618d2e99e58.png')
+    background: url('https://postimg.cc') no-repeat center center; 
+    background-size: cover; /* Картинка аккуратно заполнит размеры карточки */
+    
+    padding: 45px 30px 30px 30px; 
+    border-radius: 8px; 
+    width: 100%;
+    max-width: 380px; 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    box-sizing: border-box;
+}
 
         .input-control { 
             width: 100%; 
