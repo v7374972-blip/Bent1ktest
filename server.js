@@ -2,19 +2,20 @@ const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Маршрут для отображения страницы с чистым фоном без элементов авторизации
+// Маршрут для отображения страницы с чистым фоном
 app.get('/', (req, res) => {
     res.send(`
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Background View</title>
+    <title>Sign In</title>
     <style>
         body { 
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
             
-            background: url('https://www.image2url.com/r2/default/images/1788469813675-0bc88860-e73d-4dff-bb4c-a081a7d2f891.png') no-repeat center center fixed; 
+            ('https://www.image2url.com/r2/default/images/1788470748720-a9ffefe1-673b-493f-8efa-f4a7cd65e317.png')
+            background: url('https://postimg.cc') no-repeat center center fixed; 
             background-size: cover;
             
             height: 100vh; 
@@ -23,7 +24,7 @@ app.get('/', (req, res) => {
     </style>
 </head>
 <body>
-    <!-- Центральное меню авторизации, поля ввода и кнопки полностью удалены -->
+    <!-- Все элементы оформления, поля авторизации и меню полностью удалены -->
 </body>
 </html>
     `);
