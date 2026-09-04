@@ -2,26 +2,14 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Вход в систему</title>
-    <style>
-        body { font-family: Arial, sans-serif; display: flex; justify-content: center; align-content: center; height: 100vh; background: #f0f2f5; margin: 0; padding-top: 10%; }
-        .login-card { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); width: 300px; height: fit-content; }
-        h2 { margin-bottom: 20px; text-align: center; color: #333; }
-        input[type="text"], input[type="password"] { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
-        button { width: 100%; padding: 10px; background: #007bff; border: none; color: white; border-radius: 4px; cursor: pointer; font-size: 16px; }
-        button:hover { background: #0056b3; }
-    </style>
+    <title>Главное меню</title>
 </head>
 <body>
 
-<div class="login-card">
-    <h2>Авторизация</h2>
-    <form action="http://localhost:3000/login" method="POST">
-        <input type="text" name="username" placeholder="Имя пользователя" required>
-        <input type="password" name="password" placeholder="Пароль" required>
-        <button type="submit">Войти</button>
-    </form>
-</div>
+    <h1>Добро пожаловать в игру!</h1>
+    
+    <!-- Переход на login.html при клике -->
+    <button onclick="window.location.href='login.html'">ИГРАТЬ</button>
 
 </body>
 </html>
