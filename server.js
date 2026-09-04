@@ -31,7 +31,7 @@ function getLoginPage(showError = false) {
 
         .auth-container { 
             background-color: #23252b;
-            padding: 39px 15px 50px; 
+            padding: 39px 15px 60px; 
             border-radius: 6px; 
             width: 100%;
             max-width: 400px;
