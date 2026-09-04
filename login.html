@@ -2,13 +2,129 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login to Roblox</title>
     <style>
-        /* Сюда вставь все свои CSS стили */
-        .signup-text a:hover { text-decoration: underline; }
+        body {
+            background-color: #191b1d;
+            color: #ffffff;
+            font-family: 'Haptik', 'Segoe UI', Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .auth-container {
+            background-color: #232527;
+            padding: 40px;
+            border-radius: 8px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 28px;
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .input-control {
+            width: 100%;
+            padding: 12px;
+            background-color: #111214;
+            border: 1px solid #393b3d;
+            border-radius: 4px;
+            color: #ffffff;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+
+        .input-control:focus {
+            border-color: #ffffff;
+            outline: none;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 12px;
+            background-color: #ffffff;
+            color: #000000;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background 0.2s;
+        }
+
+        .btn-submit:hover {
+            background-color: #cccccc;
+        }
+
+        .link-text {
+            display: block;
+            margin-top: 15px;
+            color: #b8b8b8;
+            font-size: 13px;
+            text-decoration: none;
+        }
+
+        .link-text:hover {
+            text-decoration: underline;
+        }
+
+        .secondary-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .btn-secondary {
+            width: 100%;
+            padding: 10px;
+            background-color: transparent;
+            color: #ffffff;
+            border: 1px solid #393b3d;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .btn-secondary:hover {
+            background-color: #2a2c2e;
+        }
+
+        .signup-text {
+            margin-top: 25px;
+            font-size: 14px;
+            color: #b8b8b8;
+        }
+
+        .signup-text a {
+            color: #ffffff;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .signup-text a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
+
     <div class="auth-container">
         <h1>Login to Roblox</h1>
         
@@ -29,5 +145,6 @@
             Don't have an account? <a href="#">Sign Up</a>
         </div>
     </div>
+
 </body>
 </html>
