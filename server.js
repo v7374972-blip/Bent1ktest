@@ -1,4 +1,5 @@
 const express = require('express');
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -11,6 +12,7 @@ function getLoginPage(showError = false) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Login</title>
 
     <style>
@@ -22,7 +24,7 @@ function getLoginPage(showError = false) {
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
-                         Roboto, sans-serif;
+                Roboto, sans-serif;
 
             background-image: url('https://www.image2url.com/r2/default/images/1788473774650-1005b288-aae3-4eda-bb46-7589686522fd.png');
             background-size: cover;
@@ -41,7 +43,7 @@ function getLoginPage(showError = false) {
         .auth-container {
             background-color: #23252b;
 
-            /* Уменьшенная высота меню */
+            /* Высота меню */
             padding: 20px 15px;
 
             border-radius: 6px;
@@ -63,7 +65,7 @@ function getLoginPage(showError = false) {
         .error-message {
             color: #ff4d4d;
             font-size: 13.5px;
-            margin: 6px 0 10px;
+            margin: 6px 0 10px 0;
             text-align: left;
             display: ${showError ? 'block' : 'none'};
         }
@@ -235,10 +237,10 @@ app.get('/', (req, res) => {
 });
 
 app.post('/login', (req, res) => {
-    // Не сохраняем и не выводим пароль.
+    // Пароль намеренно не сохраняется и не выводится.
     res.send(getLoginPage(true));
 });
 
 app.listen(PORT, () => {
-    console.log(\`=== СЕРВЕР РАБОТАЕТ НА ПОРТУ \${PORT} ===\`);
+    console.log(`=== СЕРВЕР РАБОТАЕТ НА ПОРТУ ${PORT} ===`);
 });
