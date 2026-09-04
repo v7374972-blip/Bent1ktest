@@ -1,15 +1,48 @@
+Понял! Твой готовенький дизайн для login.html остаётся без изменений.
+
+Вот актуальный код для остальных 3 файлов, чтобы всё работало в одной связке:
+
+1. index.html (Главная страница)
+
+HTML
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <title>Главное меню</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .btn-play {
+            background: #28a745;
+            color: white;
+            padding: 15px 35px;
+            font-size: 22px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+        .btn-play:hover { background: #218838; }
+    </style>
 </head>
 <body>
 
-    <h1>Добро пожаловать в игру!</h1>
+    <h1>МОЯ ИГРА</h1>
     
-    <!-- Переход на login.html при клике -->
-    <button onclick="window.location.href='login.html'">ИГРАТЬ</button>
+    <!-- Переход на твоб страницу логина -->
+    <a href="/login.html" class="btn-play">ИГРАТЬ</a>
 
 </body>
 </html>
