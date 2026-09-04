@@ -24,9 +24,9 @@
         .auth-container {
             background: transparent;
             width: 100%;
-            max-width: 360px; /* Уменьшили ширину ровно под рамку на картинке */
+            max-width: 360px;
             padding: 0;
-            margin-top: -35px; /* Подняли выше, чтобы точно совпало */
+            margin-top: -35px;
             margin-left: 0px;
             box-sizing: border-box;
         }
@@ -44,17 +44,20 @@
         .input-control {
             width: 100%;
             height: 38px;
-            background: transparent !important; /* Убираем любой фон */
-            border: none !important;             /* Убираем любые рамки */
-            outline: none !important;            /* Убираем обводку при клике */
+            background: transparent !important;
+            border: none !important;
+            outline: none !important;
             color: #ffffff;
             font-size: 14px;
-            padding: 0 10px;
+            
+            /* Отступ слева 22px двигает курсор ровно к началу текста на картинке */
+            padding: 0 10px 0 22px;
+            
             box-sizing: border-box;
-            box-shadow: none !important;         /* Убираем тени браузера */
+            box-shadow: none !important;
+            line-height: 38px;
         }
 
-        /* Полностью убираем подсвечивание и появление фона при фокусе */
         .input-control:focus {
             background: transparent !important;
             outline: none !important;
@@ -63,7 +66,7 @@
         }
 
         .input-control::placeholder {
-            color: transparent; /* Скрываем текст-подсказку */
+            color: transparent;
         }
 
         .btn-submit {
